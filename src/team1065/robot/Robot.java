@@ -5,8 +5,9 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import team1065.robot.commands.ExampleCommand;
-import team1065.robot.subsystems.ExampleSubsystem;
+import team1065.robot.commands.DriveWithJoysticks;
+import team1065.robot.subsystems.DriveSystem;
+import team1065.robot.subsystems.Elevator;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -16,12 +17,12 @@ import team1065.robot.subsystems.ExampleSubsystem;
  * directory.
  */
 public class Robot extends IterativeRobot {
-
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+	public static final DriveSystem drive = new DriveSystem();
 	public static OI oi;
+	public static final Elevator elevator = new Elevator();
 
-    Command autonomousCommand;
-
+    //Command autonomousCommand;
+	Command initDrive;
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -29,7 +30,8 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		oi = new OI();
         // instantiate the command used for the autonomous period
-        autonomousCommand = new ExampleCommand();
+        //autonomousCommand = new ExampleCommand();
+		initDrive = new DriveWithJoysticks();
     }
 	
 	public void disabledPeriodic() {
@@ -38,7 +40,7 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
-        if (autonomousCommand != null) autonomousCommand.start();
+        //if (autonomousCommand != null) autonomousCommand.start();
     }
 
     /**
@@ -53,7 +55,8 @@ public class Robot extends IterativeRobot {
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        if (autonomousCommand != null) autonomousCommand.cancel();
+        //if (autonomousCommand != null) autonomousCommand.cancel();
+    	initDrive.start();
     }
 
     /**
@@ -69,6 +72,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        drive.updateStatus();
     }
     
     /**

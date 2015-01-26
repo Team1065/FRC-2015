@@ -1,13 +1,55 @@
 package team1065.robot;
 
-import edu.wpi.first.wpilibj.buttons.Button;
-import team1065.robot.commands.ExampleCommand;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+	//DriverStationEnhancedIO ds;
+	Joystick lJoystick, rJoystick, elevatorJoystick;
+	
+	JoystickButton mecanumButton;
+	JoystickButton slowButton;
+    
+    
+	public OI() {
+		lJoystick = new Joystick(0);
+	    rJoystick = new Joystick(1);
+	    elevatorJoystick = new Joystick(2);
+	    
+	    mecanumButton = new JoystickButton(rJoystick, 2);//RobotMap.mecanumButtonPort);
+	    slowButton = new JoystickButton(lJoystick, 2);//RobotMap.mecanumButtonPort);
+	    //ds =DriverStation.getInstance().getEnhancedIO();
+	}
+	public double getleftJoystickY () {
+		return -lJoystick.getY();
+	}
+	
+	public double getrightJoystickY () {
+		return -rJoystick.getY();
+	}
+	public double getelevatorJoystickY(){
+		return elevatorJoystick.getY();
+	}
+	
+	public double getRightX() {
+        return rJoystick.getX();
+    }
+    
+    public double getYAverage(){
+        return ((-lJoystick.getY()) + (-rJoystick.getY()))/2.0;
+    }
+    
+    public boolean getMecanumButton(){
+        return mecanumButton.get();
+    }
+    
+    public boolean getSlowButton(){
+        return slowButton.get();
+    }
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.
     // You create one by telling it which joystick it's on and which button
