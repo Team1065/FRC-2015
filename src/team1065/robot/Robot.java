@@ -2,6 +2,7 @@
 package team1065.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -20,9 +21,12 @@ public class Robot extends IterativeRobot {
 	public static final DriveSystem drive = new DriveSystem();
 	public static OI oi;
 	public static final Elevator elevator = new Elevator();
+	
+	public static Preferences pref;
 
-    //Command autonomousCommand;
+
 	Command initDrive;
+	
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -73,6 +77,7 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         drive.updateStatus();
+        elevator.updateStatus();
     }
     
     /**

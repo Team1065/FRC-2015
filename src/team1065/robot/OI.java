@@ -16,13 +16,13 @@ public class OI {
     
     
 	public OI() {
-		lJoystick = new Joystick(0);
-	    rJoystick = new Joystick(1);
-	    elevatorJoystick = new Joystick(2);
+		lJoystick = new Joystick(RobotMap.leftJoystick);
+	    rJoystick = new Joystick(RobotMap.rightJoystick);
+	    elevatorJoystick = new Joystick(RobotMap.elevatorJoystick);
 	    
-	    mecanumButton = new JoystickButton(rJoystick, 2);//RobotMap.mecanumButtonPort);
-	    slowButton = new JoystickButton(lJoystick, 2);//RobotMap.mecanumButtonPort);
-	    //ds =DriverStation.getInstance().getEnhancedIO();
+	    mecanumButton = new JoystickButton(rJoystick, RobotMap.mecanumButtonPort);
+	    slowButton = new JoystickButton(lJoystick, RobotMap.mecanumButtonPort);
+	    
 	}
 	public double getleftJoystickY () {
 		return -lJoystick.getY();
@@ -50,31 +50,5 @@ public class OI {
     public boolean getSlowButton(){
         return slowButton.get();
     }
-    //// CREATING BUTTONS
-    // One type of button is a joystick button which is any button on a joystick.
-    // You create one by telling it which joystick it's on and which button
-    // number it is.
-    // Joystick stick = new Joystick(port);
-    // Button button = new JoystickButton(stick, buttonNumber);
-    
-    // There are a few additional built in buttons you can use. Additionally,
-    // by subclassing Button you can create custom triggers and bind those to
-    // commands the same as any other Button.
-    
-    //// TRIGGERING COMMANDS WITH BUTTONS
-    // Once you have a button, it's trivial to bind it to a button in one of
-    // three ways:
-    
-    // Start the command when the button is pressed and let it run the command
-    // until it is finished as determined by it's isFinished method.
-    // button.whenPressed(new ExampleCommand());
-    
-    // Run the command while the button is being held down and interrupt it once
-    // the button is released.
-    // button.whileHeld(new ExampleCommand());
-    
-    // Start the command when the button is released  and let it run the command
-    // until it is finished as determined by it's isFinished method.
-    // button.whenReleased(new ExampleCommand());
 }
 

@@ -6,13 +6,52 @@ package team1065.robot;
  * floating around.
  */
 public class RobotMap {
-    // For example to map the left and right motors, you could define the
-    // following variables to use with your drivetrain subsystem.
-    // public static int leftMotor = 1;
-    // public static int rightMotor = 2;
+	//Constants
+    public static final double
+           encoderCountPerRev = 360.0,
+           driveWheelsDiameter = 8.0,
+           driveMinSpeed = 0.2,
+           driveStraightThresholdPercentage = .30,
+           driveStraightPTerm = 0.0001;
+	
+	//Motors PMW input on Robot
+    public static final int 
+            frontLeftMotor  = 0,  
+            frontRightMotor = 1,  
+            backLeftMotor   = 2,  
+            backRightMotor  = 3,
+            elevatorMotor   = 4;
     
-    // If you are using multiple modules, make sure to define both the port
-    // number and the module. For example you with a rangefinder:
-    // public static int rangefinderPort = 1;
-    // public static int rangefinderModule = 1;
+    //Digital Inputs
+    public static final int
+           encoderLeftA      = 0,
+           encoderLeftB      = 1,
+           encoderRightA     = 2,
+           encoderRightB     = 3,
+           topLimitSwitch    = 4,
+           bottomLimitSwitch = 5;
+    
+    //OI
+    public static final int 
+           leftJoystick       = 0,
+           rightJoystick      = 1,
+           elevatorJoystick   = 2,
+           triggerPort        = 1,  
+           mecanumButtonPort  = 2; 
+    
+  //Elevator Knob values
+    public static final double 
+            elevatorVDposition0 = 0.3,
+            elevatorVDposition1 = 0.5,
+            elevatorVDposition2 = 1.2,
+            elevatorVDposition3 = 1.8,
+            elevatorVDposition4 = 2.4,
+            elevatorVDposition5 = 3.1;
+    
+    //Auto Knob values
+    public static final double 
+            autoVDposition1 = 0.5,
+            autoVDposition2 = 1.2,
+            autoVDposition3 = 1.9,
+            autoVDposition4 = 2.7;
 }

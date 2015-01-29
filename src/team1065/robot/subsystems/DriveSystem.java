@@ -1,5 +1,7 @@
 package team1065.robot.subsystems;
 
+import team1065.robot.Robot;
+import team1065.robot.RobotMap;
 import edu.wpi.first.wpilibj.CounterBase;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -12,29 +14,27 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class DriveSystem extends Subsystem {
     
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
 	private Talon lFrontMotor, lBackMotor, rFrontMotor, rBackMotor;
 	private RobotDrive drive;
 	private Encoder encoderLeft, encoderRight;
 	private double proportional;
 	
 	public DriveSystem() {
-		lFrontMotor = new Talon(0);
-		lBackMotor = new Talon(2);
-		rFrontMotor = new Talon(1);
-		rBackMotor = new Talon(3);
-		encoderLeft = new Encoder (0, 1,false,CounterBase.EncodingType.k1X);
-        encoderRight = new Encoder (2, 3,false,CounterBase.EncodingType.k1X);
-        //encoderLeft.setDistancePerPulse(RobotMap.driveWheelsDiameter * Math.PI / RobotMap.encoderCountPerRev);
-        //encoderRight.setDistancePerPulse(RobotMap.driveWheelsDiameter * Math.PI / RobotMap.encoderCountPerRev);
+		lFrontMotor = new Talon(RobotMap.frontLeftMotor);
+		lBackMotor = new Talon(RobotMap.backLeftMotor);
+		rFrontMotor = new Talon(RobotMap.frontRightMotor);
+		rBackMotor = new Talon(RobotMap.backRightMotor);
+		encoderLeft = new Encoder (RobotMap.encoderLeftA, RobotMap.encoderLeftB,false,CounterBase.EncodingType.k1X);
+        encoderRight = new Encoder (RobotMap.encoderRightA, RobotMap.encoderRightB,false,CounterBase.EncodingType.k1X);
+        encoderLeft.setDistancePerPulse(RobotMap.driveWheelsDiameter * Math.PI / RobotMap.encoderCountPerRev);
+        encoderRight.setDistancePerPulse(RobotMap.driveWheelsDiameter * Math.PI / RobotMap.encoderCountPerRev);
         encoderLeft.setSamplesToAverage(1);
         encoderRight.setSamplesToAverage(1);
 		drive = new RobotDrive(lFrontMotor, lBackMotor, rFrontMotor, rBackMotor);
 		drive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
         drive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
         drive.setSafetyEnabled(false);
-        proportional = 0.0001;//RobotMap.driveStraightPTerm; 
+        proportional = RobotMap.driveStraightPTerm; 
 	}
 	
 	public void tankDrive(double lSpeed, double rSpeed){
@@ -149,7 +149,7 @@ public class DriveSystem extends Subsystem {
     //for straight drive
     public double getEncoderDifference()
     {
-        double diff = (encoderLeft.getRate()-encoderRight.getRate())* proportional;//Moose.pref.getDouble("DriveStraightPTerm", proportional);
+        double diff = (encoderLeft.getRate()-encoderRight.getRate()) * Robot.pref.getDouble("DriveStraightPTerm", proportional);
         if (diff >.5)
         {
             diff = .5;
@@ -164,7 +164,7 @@ public class DriveSystem extends Subsystem {
     //for rotating in place
     public double getEncoderAbsDifference()
     {
-        double diff = (Math.abs(encoderLeft.getRate())-Math.abs(encoderRight.getRate())) * proportional;// Moose.pref.getDouble("DriveStraightPTerm", proportional);
+        double diff = (Math.abs(encoderLeft.getRate())-Math.abs(encoderRight.getRate())) * Robot.pref.getDouble("DriveStraightPTerm", proportional);
         if (diff >.5)
         {
             diff = .5;
@@ -196,8 +196,6 @@ public class DriveSystem extends Subsystem {
         SmartDashboard.putNumber("Encoder Right Rate",encoderRight.getRate());
         SmartDashboard.putNumber("Encoder Left Count",encoderLeft.get());
         SmartDashboard.putNumber("Encoder Right Count",encoderRight.get());
-        SmartDashboard.putNumber("front left",lFrontMotor.get());
-        SmartDashboard.putNumber("front right",rFrontMotor.get());
         SmartDashboard.putNumber("Encoder Difference",getEncoderDifference());
     }
 }

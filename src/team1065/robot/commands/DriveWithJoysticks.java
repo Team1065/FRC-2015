@@ -1,6 +1,7 @@
 package team1065.robot.commands;
 
 import team1065.robot.Robot;
+import team1065.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -10,8 +11,6 @@ public class DriveWithJoysticks extends Command {
 
     public DriveWithJoysticks() {
     	requires (Robot.drive);
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
@@ -22,7 +21,6 @@ public class DriveWithJoysticks extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//Robot.drive.tankDrive(Robot.oi.getleftJoystickY(), Robot.oi.getrightJoystickY());
     	double leftY = Robot.oi.getleftJoystickY();
         double rightY = Robot.oi.getrightJoystickY();
         
@@ -55,7 +53,7 @@ public class DriveWithJoysticks extends Command {
             //1) Both Joysticks are going in the same direction
             //2) The Difference between the Joysticks is not larger than a percentage of the set speed
             //As the speed is higher the is a greater forgiveness for error
-            if((leftY * rightY >= 0) && joystickDiff < (Math.abs(averageY) * .30))//Moose.pref.getDouble("DriveStraightPercentage", RobotMap.driveStraightThresholdPercentage)))
+            if((leftY * rightY >= 0) && joystickDiff < (Math.abs(averageY) * Robot.pref.getDouble("DriveStraightPercentage", RobotMap.driveStraightThresholdPercentage)))
             {
             	Robot.drive.driveStraight(averageY);
             }
