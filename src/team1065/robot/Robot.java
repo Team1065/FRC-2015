@@ -33,6 +33,7 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
 		oi = new OI();
+		pref = Preferences.getInstance();
         // instantiate the command used for the autonomous period
         //autonomousCommand = new ExampleCommand();
 		initDrive = new DriveWithJoysticks();
