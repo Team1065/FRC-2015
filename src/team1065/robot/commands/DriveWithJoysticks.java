@@ -25,11 +25,11 @@ public class DriveWithJoysticks extends Command {
         
         double rightX = Robot.oi.getRightX();
 
-        if(Robot.oi.getFullSpeedButton()){
+        if(Robot.oi.getHalfSpeedButton()){
         	//full speed
-        	leftY = Robot.oi.getleftJoystickY();
-            rightY = Robot.oi.getrightJoystickY();
-            averageY = Robot.oi.getYAverage();
+        	leftY = Robot.oi.getleftJoystickY()/2;
+            rightY = Robot.oi.getrightJoystickY()/2;
+            averageY = Robot.oi.getYAverage()/2;
             
         }
         else{

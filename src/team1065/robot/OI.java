@@ -13,7 +13,7 @@ public class OI {
 	Joystick lJoystick, rJoystick, enhancedDS;
 	
 	JoystickButton mecanumButton;
-	JoystickButton fullSpeedButton;
+	JoystickButton halfSpeedButton;
     
     
 	public OI() {
@@ -22,7 +22,7 @@ public class OI {
 	    enhancedDS = new Joystick(RobotMap.enhancedDS);
 	    
 	    mecanumButton = new JoystickButton(rJoystick, RobotMap.mecanumButtonPort);
-	    fullSpeedButton = new JoystickButton(rJoystick, RobotMap.triggerButtonPort);
+	    halfSpeedButton = new JoystickButton(rJoystick, RobotMap.triggerButtonPort);
 	    
 	}
 	
@@ -46,8 +46,8 @@ public class OI {
         return mecanumButton.get();
     }
     
-    public boolean getFullSpeedButton(){
-        return fullSpeedButton.get();
+    public boolean getHalfSpeedButton(){
+        return halfSpeedButton.get();
     }
     
     public boolean getElevatorManualButton(){
@@ -91,6 +91,31 @@ public class OI {
 		
 		return position;
 	}
+    
+    public int autonomousSelection(){
+    	int position = 1;
+		double knobValue = enhancedDS.getRawAxis(RobotMap.autoKnobPort);
+		double threshold = .3;
+		
+		//If Station Knob is at 1
+		if(knobValue < RobotMap.autoKnob0 + threshold){
+            position = 1;
+        }
+        //If Station Knob is at 2
+        else if(knobValue >= RobotMap.autoKnob1 && knobValue < RobotMap.autoKnob1 + threshold){
+            position = 2;
+        }
+        //If Station Knob is at 3
+        else if(knobValue >= RobotMap.autoKnob2 && knobValue < RobotMap.autoKnob2 + threshold){
+            position = 3;
+        }
+        //If Station Knob is at 4
+        else if(knobValue >= RobotMap.autoKnob3 && knobValue < RobotMap.autoKnob3 + threshold){
+            position = 4;
+        }
+		
+		return position;
+    }
     
     public void updateStatus()
     {

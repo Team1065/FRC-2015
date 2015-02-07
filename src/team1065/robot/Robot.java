@@ -9,6 +9,10 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import team1065.robot.commands.DriveWithJoysticks;
+import team1065.robot.commands.autonomous.Autonomous1;
+import team1065.robot.commands.autonomous.Autonomous2;
+import team1065.robot.commands.autonomous.Autonomous3;
+import team1065.robot.commands.autonomous.Autonomous4;
 import team1065.robot.subsystems.DriveSystem;
 import team1065.robot.subsystems.Elevator;
 
@@ -28,6 +32,8 @@ public class Robot extends IterativeRobot {
 
 	Command initDrive;
 	
+	Command auto1,auto2,auto3, auto4;
+	
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -37,6 +43,11 @@ public class Robot extends IterativeRobot {
 		pref = Preferences.getInstance();
 		
 		initDrive = new DriveWithJoysticks();
+		
+		auto1 = new Autonomous1();
+        auto2 = new Autonomous2();
+        auto3 = new Autonomous3();
+        auto4 = new Autonomous4();
     }
 	
 	public void disabledPeriodic() {
@@ -44,8 +55,19 @@ public class Robot extends IterativeRobot {
 	}
 
     public void autonomousInit() {
-        // schedule the autonomous command (example)
-        //if (autonomousCommand != null) autonomousCommand.start();
+        switch(oi.autonomousSelection())
+        {
+            case 1: auto1.start();
+                    break;
+            case 2: auto2.start();
+                    break;
+            case 3: auto3.start();
+                    break;
+            case 4: auto4.start();
+                    break;
+            default: auto1.start();
+                    break;
+        }
     }
 
     /**

@@ -72,6 +72,7 @@ public class RobotMap {
            mecanumButtonPort  	= 2,
            elevatorAnalogPort	= 0,//LaunchPad analog
            elevatorKnobPort		= 1,//LaunchPad analog
+           autoKnobPort			= 1,//LaunchPad analog
            elevatorDigitalPort	= 1;//LaunchPad digital
     
   
