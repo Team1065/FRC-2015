@@ -194,9 +194,13 @@ public class DriveSystem extends Subsystem {
     {
         SmartDashboard.putNumber("Encoder Left Rate",encoderLeft.getRate());
         SmartDashboard.putNumber("Encoder Right Rate",encoderRight.getRate());
-        SmartDashboard.putNumber("Encoder Left Count",encoderLeft.get());
-        SmartDashboard.putNumber("Encoder Right Count",encoderRight.get());
         SmartDashboard.putNumber("Encoder Difference",getEncoderDifference());
+        //SmartDashboard.putNumber("Encoder Left Count",encoderLeft.get());
+        //SmartDashboard.putNumber("Encoder Right Count",encoderRight.get());
+        //SmartDashboard.putNumber("Left Front Motor",lFrontMotor.get());
+        //SmartDashboard.putNumber("Left Back Motor",lBackMotor.get());
+        //SmartDashboard.putNumber("Right Front Motor",rFrontMotor.get());
+        //SmartDashboard.putNumber("Right Back Motor",rBackMotor.get());
     }
 }
 

@@ -21,17 +21,22 @@ public class DriveWithJoysticks extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double leftY = Robot.oi.getleftJoystickY();
-        double rightY = Robot.oi.getrightJoystickY();
+    	double leftY, rightY, averageY;
         
         double rightX = Robot.oi.getRightX();
-        
-        double averageY = Robot.oi.getYAverage();
-        
-        if(Robot.oi.getSlowButton()){
-            leftY = leftY / 2.0;
-            rightY = rightY / 2.0;
-            averageY = averageY /2.0;
+
+        if(Robot.oi.getFullSpeedButton()){
+        	//full speed
+        	leftY = Robot.oi.getleftJoystickY();
+            rightY = Robot.oi.getrightJoystickY();
+            averageY = Robot.oi.getYAverage();
+            
+        }
+        else{
+        	//reduced speed
+        	leftY = Robot.oi.getleftJoystickY() * Robot.pref.getDouble("regularSpeedPercentage", RobotMap.regularSpeedPercentage);
+            rightY = Robot.oi.getrightJoystickY() * Robot.pref.getDouble("regularSpeedPercentage", RobotMap.regularSpeedPercentage);
+            averageY = Robot.oi.getYAverage() * Robot.pref.getDouble("regularSpeedPercentage", RobotMap.regularSpeedPercentage);
         }
 
         double joystickDiff = Math.abs(leftY-rightY);

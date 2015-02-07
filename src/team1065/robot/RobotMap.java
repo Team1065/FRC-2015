@@ -1,4 +1,5 @@
 package team1065.robot;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -12,7 +13,34 @@ public class RobotMap {
            driveWheelsDiameter = 8.0,
            driveMinSpeed = 0.2,
            driveStraightThresholdPercentage = .30,
-           driveStraightPTerm = 0.0001;
+           driveStraightPTerm = 0.0001,
+           regularSpeedPercentage = 0.70,
+           elevatorPositionDeadBand = 0.05;
+    
+  //Elevator Knob values
+    public static final double 
+            elevatorPosition0 = 0.5,
+            elevatorPosition1 = 1.0,
+            elevatorPosition2 = 2.0,
+            elevatorPosition3 = 2.5,
+            elevatorPosition4 = 3.0,
+            elevatorPosition5 = 4.5;
+    
+    //Elevator Knob values
+    public static final double 
+            elevatorKnob0 = 0.3,
+            elevatorKnob1 = 0.5,
+            elevatorKnob2 = 1.2,
+            elevatorKnob3 = 1.8,
+            elevatorKnob4 = 2.4,
+            elevatorKnob5 = 3.1;
+    
+    //Auto Knob values
+    public static final double 
+            autoKnob0 = 0.5,
+            autoKnob1 = 1.2,
+            autoKnob2 = 1.9,
+            autoKnob3 = 2.7;
 	
 	//Motors PMW input on Robot
     public static final int 
@@ -31,27 +59,20 @@ public class RobotMap {
            topLimitSwitch    = 4,
            bottomLimitSwitch = 5;
     
+  //Analog Inputs
+    public static final int
+           potentiometer      = 0;
+    
     //OI
     public static final int 
-           leftJoystick       = 0,
-           rightJoystick      = 1,
-           elevatorJoystick   = 2,
-           triggerPort        = 1,  
-           mecanumButtonPort  = 2; 
+           leftJoystick       	= 0,
+           rightJoystick      	= 1,
+           enhancedDS   	  	= 2,
+           triggerButtonPort  	= 1,  
+           mecanumButtonPort  	= 2,
+           elevatorAnalogPort	= 0,//LaunchPad analog
+           elevatorKnobPort		= 1,//LaunchPad analog
+           elevatorDigitalPort	= 1;//LaunchPad digital
     
-  //Elevator Knob values
-    public static final double 
-            elevatorVDposition0 = 0.3,
-            elevatorVDposition1 = 0.5,
-            elevatorVDposition2 = 1.2,
-            elevatorVDposition3 = 1.8,
-            elevatorVDposition4 = 2.4,
-            elevatorVDposition5 = 3.1;
-    
-    //Auto Knob values
-    public static final double 
-            autoVDposition1 = 0.5,
-            autoVDposition2 = 1.2,
-            autoVDposition3 = 1.9,
-            autoVDposition4 = 2.7;
+  
 }

@@ -1,6 +1,8 @@
 
 package team1065.robot;
 
+import java.util.HashMap;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.command.Command;
@@ -24,7 +26,6 @@ public class Robot extends IterativeRobot {
 	
 	public static Preferences pref;
 
-
 	Command initDrive;
 	
     /**
@@ -34,8 +35,7 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		oi = new OI();
 		pref = Preferences.getInstance();
-        // instantiate the command used for the autonomous period
-        //autonomousCommand = new ExampleCommand();
+		
 		initDrive = new DriveWithJoysticks();
     }
 	
