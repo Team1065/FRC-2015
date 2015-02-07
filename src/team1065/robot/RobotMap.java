@@ -17,7 +17,7 @@ public class RobotMap {
            regularSpeedPercentage = 0.70,
            elevatorPositionDeadBand = 0.05;
     
-  //Elevator Knob values
+  //Elevator Position values
     public static final double 
             elevatorPosition0 = 0.5,
             elevatorPosition1 = 1.0,
