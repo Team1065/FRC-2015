@@ -1,8 +1,6 @@
 
 package team1065.robot;
 
-import java.util.HashMap;
-
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.command.Command;

@@ -21,14 +21,9 @@ public class ElevatorControl extends Command {
     protected void execute() {
     	if(Robot.oi.getElevatorManualButton())
     	{
-	    	if(Math.abs(Robot.oi.getElevatorJoystickY() - 0.063) > 0.02){
-	    		if(Robot.oi.getElevatorJoystickY() > 0.06){
-	    			Robot.elevator.setElevatorSpeed(-1);
-	    		}
-	    		else{
-	    			Robot.elevator.setElevatorSpeed(1);
-	    		}
-	    		
+    		double joystickValue = Robot.oi.getElevatorJoystickY();
+	    	if(Math.abs(joystickValue - RobotMap.extraJoystickMiddle) > 0.01){
+	    		Robot.elevator.setElevatorSpeed((joystickValue - RobotMap.extraJoystickMiddle)/RobotMap.extraJoystickMiddle);
 	    	}
 	    	else{
 	    		Robot.elevator.setElevatorSpeed(0);
