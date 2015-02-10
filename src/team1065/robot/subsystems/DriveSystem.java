@@ -24,7 +24,7 @@ public class DriveSystem extends Subsystem {
 		lBackMotor = new Talon(RobotMap.backLeftMotor);
 		rFrontMotor = new Talon(RobotMap.frontRightMotor);
 		rBackMotor = new Talon(RobotMap.backRightMotor);
-		encoderLeft = new Encoder (RobotMap.encoderLeftA, RobotMap.encoderLeftB,false,CounterBase.EncodingType.k1X);
+		encoderLeft = new Encoder (RobotMap.encoderLeftA, RobotMap.encoderLeftB,true,CounterBase.EncodingType.k1X);
         encoderRight = new Encoder (RobotMap.encoderRightA, RobotMap.encoderRightB,false,CounterBase.EncodingType.k1X);
         encoderLeft.setDistancePerPulse(RobotMap.driveWheelsDiameter * Math.PI / RobotMap.encoderCountPerRev);
         encoderRight.setDistancePerPulse(RobotMap.driveWheelsDiameter * Math.PI / RobotMap.encoderCountPerRev);

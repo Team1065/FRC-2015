@@ -20,7 +20,7 @@ public class Elevator extends Subsystem {
 		pot = new AnalogInput(RobotMap.potentiometer);
 	}
 	private void setSpeed(double speed){
-		motor.set(speed);
+		motor.set(-speed);
 	}
 	public boolean topLimitReached(){
 		return topSwitch.get();

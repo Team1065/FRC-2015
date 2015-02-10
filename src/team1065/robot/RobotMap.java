@@ -14,7 +14,7 @@ public class RobotMap {
            driveMinSpeed = 0.2,
            driveStraightThresholdPercentage = .30,
            driveStraightPTerm = 0.0001,
-           regularSpeedPercentage = 0.70,
+           regularSpeedPercentage = 0.35,
            elevatorPositionDeadBand = 0.05;
     
   //Elevator Position values
@@ -70,10 +70,10 @@ public class RobotMap {
            enhancedDS   	  	= 2,
            triggerButtonPort  	= 1,  
            mecanumButtonPort  	= 2,
-           elevatorAnalogPort	= 0,//LaunchPad analog
-           elevatorKnobPort		= 1,//LaunchPad analog
+           elevatorAnalogPort	= 2,//LaunchPad analog
+           elevatorKnobPort		= 0,//LaunchPad analog
            autoKnobPort			= 1,//LaunchPad analog
-           elevatorDigitalPort	= 1;//LaunchPad digital
+           elevatorDigitalPort	= 8;//LaunchPad digital
     
   
 }

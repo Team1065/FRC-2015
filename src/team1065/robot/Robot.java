@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import team1065.robot.commands.DriveWithJoysticks;
+import team1065.robot.commands.ElevatorControl;
 import team1065.robot.commands.autonomous.Autonomous1;
 import team1065.robot.commands.autonomous.Autonomous2;
 import team1065.robot.commands.autonomous.Autonomous3;
@@ -30,7 +31,7 @@ public class Robot extends IterativeRobot {
 	
 	public static Preferences pref;
 
-	Command initDrive;
+	Command initDrive, initElevator;
 	
 	Command auto1,auto2,auto3, auto4;
 	
@@ -43,6 +44,7 @@ public class Robot extends IterativeRobot {
 		pref = Preferences.getInstance();
 		
 		initDrive = new DriveWithJoysticks();
+		initElevator = new ElevatorControl();
 		
 		auto1 = new Autonomous1();
         auto2 = new Autonomous2();
@@ -84,6 +86,7 @@ public class Robot extends IterativeRobot {
         // this line or comment it out.
         //if (autonomousCommand != null) autonomousCommand.cancel();
     	initDrive.start();
+    	initElevator.start();
     }
 
     /**
@@ -101,6 +104,7 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         drive.updateStatus();
         elevator.updateStatus();
+        oi.updateStatus();
     }
     
     /**

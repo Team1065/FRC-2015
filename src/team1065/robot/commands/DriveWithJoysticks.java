@@ -27,9 +27,9 @@ public class DriveWithJoysticks extends Command {
 
         if(Robot.oi.getHalfSpeedButton()){
         	//full speed
-        	leftY = Robot.oi.getleftJoystickY()/2;
-            rightY = Robot.oi.getrightJoystickY()/2;
-            averageY = Robot.oi.getYAverage()/2;
+        	leftY = Robot.oi.getleftJoystickY()*0.6;
+            rightY = Robot.oi.getrightJoystickY()*0.6;
+            averageY = Robot.oi.getYAverage()*0.6;
             
         }
         else{
