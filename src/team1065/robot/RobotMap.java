@@ -15,8 +15,10 @@ public class RobotMap {
            driveStraightThresholdPercentage = .30,
            driveStraightPTerm = 0.0001,
            regularSpeedPercentage = 0.35,
-           elevatorPositionDeadBand = 0.05,
-           extraJoystickMiddle = 0.063;
+           elevatorPTerm = 1.0,
+           elevatorPositionDeadBand = 0.1,
+           elevatorJoystickMiddle = 0.063,
+           elevatorJoystickDeadBand = 0.005;
     
   //Elevator Position values
     public static final double 

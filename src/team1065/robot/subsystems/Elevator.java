@@ -1,5 +1,6 @@
 package team1065.robot.subsystems;
 
+import team1065.robot.Robot;
 import team1065.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -10,14 +11,16 @@ import edu.wpi.first.wpilibj.Talon;
  *
  */
 public class Elevator extends Subsystem {
-	Talon motor;
-	DigitalInput topSwitch, bottomSwitch;
-	AnalogInput pot;
+	private Talon motor;
+	private DigitalInput topSwitch, bottomSwitch;
+	private AnalogInput pot;
+	private double pTerm;
 	public Elevator(){
 		motor = new Talon(RobotMap.elevatorMotor);
 		topSwitch = new DigitalInput(RobotMap.topLimitSwitch);
 		bottomSwitch = new DigitalInput(RobotMap.bottomLimitSwitch);
 		pot = new AnalogInput(RobotMap.potentiometer);
+		pTerm = RobotMap.elevatorPTerm;
 	}
 	private void setSpeed(double speed){
 		motor.set(-speed);
@@ -53,6 +56,32 @@ public class Elevator extends Subsystem {
 		}
 	}
 	
+	public void moveToPosition(double desiredPosition){
+		double positionDifference = desiredPosition - getCurrentPosition();
+		
+		if(Math.abs(positionDifference) > Robot.pref.getDouble("elevatorPositionDeadBand", RobotMap.elevatorPositionDeadBand)){
+			pTerm = Robot.pref.getDouble("elevatorPTerm", RobotMap.elevatorPTerm);
+			if(positionDifference > 0){
+				if(positionDifference > 1.0){
+					setElevatorSpeed(1);
+				}
+				else{
+					setElevatorSpeed(positionDifference * pTerm);
+				}
+			}
+			else{
+				if(positionDifference < -1.0){
+					setElevatorSpeed(-1);
+				}
+				else{
+					setElevatorSpeed(positionDifference * pTerm);
+				}
+			}
+		}
+		else{
+			Robot.elevator.setElevatorSpeed(0);
+		}
+	}
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

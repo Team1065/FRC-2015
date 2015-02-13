@@ -7,7 +7,6 @@ import team1065.robot.RobotMap;
 public class MoveElevatorToPosition extends Command {
 
 	double desiredPosition;
-	double positionDifference;
 	
 	MoveElevatorToPosition(double desiredPosition, double t)
 	{
@@ -19,22 +18,11 @@ public class MoveElevatorToPosition extends Command {
     }
 
     protected void execute() {
-    	positionDifference = desiredPosition - Robot.elevator.getCurrentPosition();
-		
-		if(Math.abs(positionDifference) > Robot.pref.getDouble("elevatorPositionDeadBand", RobotMap.elevatorPositionDeadBand)){
-			if(positionDifference > 0){
-				Robot.elevator.setElevatorSpeed(1);
-			}
-			else{
-				Robot.elevator.setElevatorSpeed(-1);
-			}
-		}
-		else{
-			Robot.elevator.setElevatorSpeed(0);
-		}
+    	Robot.elevator.moveToPosition(desiredPosition);
     }
 
     protected boolean isFinished() {
+    	double positionDifference = desiredPosition - Robot.elevator.getCurrentPosition();
     	if((Math.abs(positionDifference) < Robot.pref.getDouble("elevatorPositionDeadBand", RobotMap.elevatorPositionDeadBand))
     			|| this.isTimedOut())
     	{

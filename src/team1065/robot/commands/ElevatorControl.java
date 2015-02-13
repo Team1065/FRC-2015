@@ -22,8 +22,8 @@ public class ElevatorControl extends Command {
     	if(Robot.oi.getElevatorManualButton())
     	{
     		double joystickValue = Robot.oi.getElevatorJoystickY();
-	    	if(Math.abs(joystickValue - RobotMap.extraJoystickMiddle) > 0.01){
-	    		Robot.elevator.setElevatorSpeed((joystickValue - RobotMap.extraJoystickMiddle)/RobotMap.extraJoystickMiddle);
+	    	if(Math.abs(joystickValue - RobotMap.elevatorJoystickMiddle) > RobotMap.elevatorJoystickDeadBand){
+	    		Robot.elevator.setElevatorSpeed((joystickValue - RobotMap.elevatorJoystickMiddle)/RobotMap.elevatorJoystickMiddle);
 	    	}
 	    	else{
 	    		Robot.elevator.setElevatorSpeed(0);
@@ -32,19 +32,7 @@ public class ElevatorControl extends Command {
     	else
     	{
     		double desiredPosition = Robot.oi.getElevatorDesiredPosition();
-    		double positionDifference = desiredPosition - Robot.elevator.getCurrentPosition();
-    		
-    		if(Math.abs(positionDifference) > Robot.pref.getDouble("elevatorPositionDeadBand", RobotMap.elevatorPositionDeadBand)){
-    			if(positionDifference > 0){
-    				Robot.elevator.setElevatorSpeed(1);
-    			}
-    			else{
-    				Robot.elevator.setElevatorSpeed(-1);
-    			}
-    		}
-    		else{
-    			Robot.elevator.setElevatorSpeed(0);
-    		}
+    		Robot.elevator.moveToPosition(desiredPosition);
     	}
     }
 
