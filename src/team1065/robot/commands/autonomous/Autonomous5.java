@@ -11,11 +11,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  * @author Team1065
  */
-public class Autonomous3 extends CommandGroup {
+public class Autonomous5 extends CommandGroup {
     
-    public Autonomous3() {
-        //distance can be changed to inches instead of counts if desired (10 count = about 1 inch)
-    	
+    public Autonomous5() {
     	//Pick up Tote 1
     	addSequential(new DriveToDistance(0.3,Robot.drive.InchToCount(10)));
     	addSequential(new StopAndWait(0.2));
@@ -38,7 +36,27 @@ public class Autonomous3 extends CommandGroup {
         addSequential(new MoveElevatorToPosition(0.5, 3));
         addSequential(new StopElevator(0.2));
         
-      //Pick up Tote 2 and Tote 1 and move to auto zone
+        //Pick up Tote 2 and Tote 1
+        addSequential(new MoveElevatorToPosition(1, 3));
+        addSequential(new StopElevator(0.2));
+        addSequential(new DriveToDistance(-0.3,Robot.drive.InchToCount(10)));
+        
+        //Move to Tote 3
+        addSequential(new RotateToDistance(0.3,360));
+        addSequential(new StopAndWait(0.2));
+        addSequential(new DriveToDistance(1,Robot.drive.InchToCount(55.25)));
+        addSequential(new StopAndWait(0.2));
+        addSequential(new RotateToDistance(-0.3,360));
+        
+        //place Tote 1 and Tote 2 on top of Tote 3        
+        addSequential(new MoveElevatorToPosition(2, 3));
+        addSequential(new StopElevator(0.2));
+        addSequential(new DriveToDistance(.3,Robot.drive.InchToCount(10)));
+        addSequential(new StopAndWait(0.2));
+        addSequential(new MoveElevatorToPosition(0.5, 3));
+        addSequential(new StopElevator(0.2));
+        
+        //Pick up Tote 1, 2, and 3 and move to auto zone
         addSequential(new MoveElevatorToPosition(1, 3));
         addSequential(new StopElevator(0.2));
         addSequential(new DriveToDistance(-.3,Robot.drive.InchToCount(10)));

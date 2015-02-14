@@ -61,57 +61,66 @@ public class OI {
 	}
     
     public double getElevatorDesiredPosition(){
-    	double position = RobotMap.elevatorKnob0;
+    	double position;
 		double knobValue = enhancedDS.getRawAxis(RobotMap.elevatorKnobPort);
-		double threshold = .3;
+		double threshold = 0.005;
 		
+		//If Station Knob is at 0
 		if(knobValue < RobotMap.elevatorKnob0 + threshold){
             position = Robot.pref.getDouble("elevatorPosition0", RobotMap.elevatorPosition0);
         }
-        //If Station Knob is at 
-        else if(knobValue >= RobotMap.elevatorKnob1 && knobValue < RobotMap.elevatorKnob1 + threshold){
+        //If Station Knob is at 1
+        else if(knobValue >= RobotMap.elevatorKnob1 - threshold && knobValue < RobotMap.elevatorKnob1 + threshold){
             position = Robot.pref.getDouble("elevatorPosition1", RobotMap.elevatorPosition1);
         }
-        //If Station Knob is at 
-        else if(knobValue >= RobotMap.elevatorKnob2 && knobValue < RobotMap.elevatorKnob2 + threshold){
+        //If Station Knob is at 2
+        else if(knobValue >= RobotMap.elevatorKnob2 - threshold && knobValue < RobotMap.elevatorKnob2 + threshold){
             position = Robot.pref.getDouble("elevatorPosition2", RobotMap.elevatorPosition2);
         }
-        //If Station Knob is at 
-        else if(knobValue >= RobotMap.elevatorKnob3 && knobValue < RobotMap.elevatorKnob3 + threshold){
+        //If Station Knob is at 3
+        else if(knobValue >= RobotMap.elevatorKnob3 - threshold && knobValue < RobotMap.elevatorKnob3 + threshold){
             position = Robot.pref.getDouble("elevatorPosition3", RobotMap.elevatorPosition3);
         }
-        //If Station Knob is at 
-        else if(knobValue >= RobotMap.elevatorKnob4 && knobValue < RobotMap.elevatorKnob4 + threshold){
+        //If Station Knob is at 4
+        else if(knobValue >= RobotMap.elevatorKnob4 - threshold && knobValue < RobotMap.elevatorKnob4 + threshold){
             position = Robot.pref.getDouble("elevatorPosition4", RobotMap.elevatorPosition4);
         }
-        //If Station Knob is at 
-        else if(knobValue >= RobotMap.elevatorKnob5){
+        //If Station Knob is at 5
+        else if(knobValue >= RobotMap.elevatorKnob5 - threshold){
             position = Robot.pref.getDouble("elevatorPosition5", RobotMap.elevatorPosition5);
-         }
+        }
+        else
+        {
+        	position = Robot.pref.getDouble("elevatorPosition0", RobotMap.elevatorPosition0);
+        }
 		
 		return position;
 	}
     
     public int autonomousSelection(){
-    	int position = 1;
+    	int position;
 		double knobValue = enhancedDS.getRawAxis(RobotMap.autoKnobPort);
-		double threshold = .3;
+		double threshold = 0.005;
 		
 		//If Station Knob is at 1
 		if(knobValue < RobotMap.autoKnob0 + threshold){
             position = 1;
         }
         //If Station Knob is at 2
-        else if(knobValue >= RobotMap.autoKnob1 && knobValue < RobotMap.autoKnob1 + threshold){
+        else if(knobValue >= RobotMap.autoKnob1 - threshold && knobValue < RobotMap.autoKnob1 + threshold){
             position = 2;
         }
         //If Station Knob is at 3
-        else if(knobValue >= RobotMap.autoKnob2 && knobValue < RobotMap.autoKnob2 + threshold){
+        else if(knobValue >= RobotMap.autoKnob2 - threshold && knobValue < RobotMap.autoKnob2 + threshold){
             position = 3;
         }
         //If Station Knob is at 4
-        else if(knobValue >= RobotMap.autoKnob3 && knobValue < RobotMap.autoKnob3 + threshold){
+        else if(knobValue >= RobotMap.autoKnob3 - threshold && knobValue < RobotMap.autoKnob3 + threshold){
             position = 4;
+        }
+        else
+        {
+        	position = 1;
         }
 		
 		return position;

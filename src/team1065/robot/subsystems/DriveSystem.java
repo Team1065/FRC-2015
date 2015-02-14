@@ -202,5 +202,10 @@ public class DriveSystem extends Subsystem {
         //SmartDashboard.putNumber("Right Front Motor",rFrontMotor.get());
         //SmartDashboard.putNumber("Right Back Motor",rBackMotor.get());
     }
+
+	public double InchToCount(double inches) {
+		double count = ((RobotMap.driveWheelsDiameter*Math.PI)/RobotMap.encoderCountPerRev) * inches;
+		return count;
+	}
 }
 

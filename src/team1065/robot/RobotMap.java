@@ -31,19 +31,20 @@ public class RobotMap {
     
     //Elevator Knob values
     public static final double 
-            elevatorKnob0 = 0.3,
-            elevatorKnob1 = 0.5,
-            elevatorKnob2 = 1.2,
-            elevatorKnob3 = 1.8,
-            elevatorKnob4 = 2.4,
-            elevatorKnob5 = 3.1;
+    		elevatorKnob0 = 0.000,
+            elevatorKnob1 = 0.024,
+            elevatorKnob2 = 0.047,
+            elevatorKnob3 = 0.071,
+            elevatorKnob4 = 0.094,
+            elevatorKnob5 = 0.118;
+            
     
     //Auto Knob values
     public static final double 
-            autoKnob0 = 0.5,
-            autoKnob1 = 1.2,
-            autoKnob2 = 1.9,
-            autoKnob3 = 2.7;
+            autoKnob0 = 0.000,
+            autoKnob1 = 0.024,
+            autoKnob2 = 0.055,
+            autoKnob3 = 0.087;
 	
 	//Motors PMW input on Robot
     public static final int 

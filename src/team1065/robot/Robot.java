@@ -8,10 +8,10 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import team1065.robot.commands.DriveWithJoysticks;
 import team1065.robot.commands.ElevatorControl;
-import team1065.robot.commands.autonomous.Autonomous1;
-import team1065.robot.commands.autonomous.Autonomous2;
 import team1065.robot.commands.autonomous.Autonomous3;
-import team1065.robot.commands.autonomous.Autonomous4;
+import team1065.robot.commands.autonomous.Autonomous2;
+import team1065.robot.commands.autonomous.Autonomous6;
+import team1065.robot.commands.autonomous.Autonomous5;
 import team1065.robot.subsystems.DriveSystem;
 import team1065.robot.subsystems.Elevator;
 
@@ -44,10 +44,10 @@ public class Robot extends IterativeRobot {
 		initDrive = new DriveWithJoysticks();
 		initElevator = new ElevatorControl();
 		
-		auto1 = new Autonomous1();
+		auto1 = new Autonomous3();
         auto2 = new Autonomous2();
-        auto3 = new Autonomous3();
-        auto4 = new Autonomous4();
+        auto3 = new Autonomous6();
+        auto4 = new Autonomous5();
     }
 	
 	public void disabledPeriodic() {
