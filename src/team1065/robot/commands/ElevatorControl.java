@@ -23,7 +23,7 @@ public class ElevatorControl extends Command {
     	{
     		double joystickValue = Robot.oi.getElevatorJoystickY();
 	    	if(Math.abs(joystickValue - RobotMap.elevatorJoystickMiddle) > RobotMap.elevatorJoystickDeadBand){
-	    		Robot.elevator.setElevatorSpeed((joystickValue - RobotMap.elevatorJoystickMiddle)/RobotMap.elevatorJoystickMiddle);
+	    		Robot.elevator.setElevatorSpeed(-(joystickValue - RobotMap.elevatorJoystickMiddle)/RobotMap.elevatorJoystickMiddle);
 	    	}
 	    	else{
 	    		Robot.elevator.setElevatorSpeed(0);

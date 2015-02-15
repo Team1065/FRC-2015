@@ -7,7 +7,7 @@ public class Autonomous1 extends CommandGroup {
 	public Autonomous1()
 	{
 		//Pick up Tote 1 and drive to AZ
-		addSequential(new MoveElevatorToPosition(0.5, 3));
+		addSequential(new MoveElevatorToPosition(4.865, 3));
         addSequential(new StopElevator(0.2));
         addSequential(new RotateToDistance(0.3,360));
         addSequential(new StopAndWait(0.2));

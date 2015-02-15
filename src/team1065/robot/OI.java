@@ -51,9 +51,8 @@ public class OI {
     }
     
     public boolean getElevatorManualButton(){
-    	//add once we have a functional knob
-    	//return enhancedDS.getRawButton(RobotMap.elevatorDigitalPort);
-    	return true;
+    	return enhancedDS.getRawButton(RobotMap.elevatorDigitalPort);
+    	//return true;
     }
     
     public double getElevatorJoystickY(){
