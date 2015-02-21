@@ -3,6 +3,7 @@ package team1065.robot.subsystems;
 import team1065.robot.RobotMap;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -42,5 +43,12 @@ public class Intake extends Subsystem {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void updateStatus()
+    {
+    	SmartDashboard.putNumber("Intake left", leftMotor.get());
+    	SmartDashboard.putNumber("Intake right", rightMotor.get());
+    	
+    }
 }
 

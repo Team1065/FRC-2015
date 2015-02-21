@@ -41,7 +41,7 @@ public class Robot extends IterativeRobot {
 	
 	public static Preferences pref;
 
-	Vector<Command> initCommands;
+	Vector<Command> initCommands = new Vector<Command>(4);
 	
 	Vector<Command> auto = new Vector<Command>(8);
 	
@@ -106,6 +106,7 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         drive.updateStatus();
         elevator.updateStatus();
+        intake.updateStatus();
         oi.updateStatus();
     }
     

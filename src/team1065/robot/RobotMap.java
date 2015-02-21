@@ -18,8 +18,8 @@ public class RobotMap {
            elevatorPTerm = 1.0,
            elevatorPositionDeadBand = 0.001,
            elevatorJoystickMiddle = 0.063,
-           elevatorJoystickDeadBand = 0.005,
-		   intakeJoystickDeadBand = 0.015;
+           elevatorJoystickDeadBand = 0.010,
+		   intakeJoystickDeadBand = 0.010;
     
   //Elevator Position values
     public static final double 
@@ -87,13 +87,13 @@ public class RobotMap {
            elevatorKnobPort		= 0,//LaunchPad analog
            autoKnobPort			= 1,//LaunchPad analog
            elevatorAnalogPort	= 2,//LaunchPad analog
-           intakeAnalogYPort	= 4,//LaunchPad analog VERIFY
-           intakeAnalogXPort	= 5,//LaunchPad analog VERIFY
+           intakeAnalogYPort	= 5,//LaunchPad analog VERIFY
+           intakeAnalogXPort	= 4,//LaunchPad analog VERIFY
            
-           fishingPolePort		= 1,//LaunchPad digital VERIFY
-           intakeInPort			= 7,//LaunchPad digital VERIFY
-           intakeOutPort		= 8,//LaunchPad digital VERIFY
+           fishingPolePort		= 1,//LaunchPad digital
+           intakeInPort			= 4,//LaunchPad digital
+           intakeOutPort		= 5,//LaunchPad digital
            elevatorOverridePort	= 9,//LaunchPad digital
-           intakeOverridePort	= 2;//LaunchPad digital VERIFY
+           intakeOverridePort	= 2;//LaunchPad digital
   
 }
