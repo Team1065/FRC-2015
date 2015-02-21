@@ -5,6 +5,7 @@
 package team1065.robot.commands.autonomous;
 
 import team1065.robot.Robot;
+import team1065.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -14,36 +15,46 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class Autonomous3 extends CommandGroup {
     
     public Autonomous3() {
-        //distance can be changed to inches instead of counts if desired (10 count = about 1 inch)
+        //2 Totes without Disturbing the bins
     	
     	//Pick up Tote 1
-    	addSequential(new DriveToDistance(0.3,Robot.drive.InchToCount(10)));
-    	addSequential(new StopAndWait(0.2));
-    	addSequential(new MoveElevatorToPosition(1, 3));
-        addSequential(new StopElevator(0.2));
+    	addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition1, 3));
         addSequential(new DriveToDistance(-0.3,Robot.drive.InchToCount(10)));
         
         //Move to Tote 2 
         addSequential(new RotateToDistance(0.3,360));
         addSequential(new StopAndWait(0.2));
-        addSequential(new DriveToDistance(1,Robot.drive.InchToCount(55.25)));
+        addSequential(new DriveToDistance(0.3,Robot.drive.InchToCount(20)));
         addSequential(new StopAndWait(0.2));
         addSequential(new RotateToDistance(-0.3,360));
+        addSequential(new StopAndWait(0.2));
+        addSequential(new DriveToDistance(0.3,Robot.drive.InchToCount(50)));
+        addSequential(new StopAndWait(0.2));
+        addSequential(new RotateToDistance(-0.3,360));
+        addSequential(new StopAndWait(0.2));
+        addSequential(new DriveToDistance(0.3,Robot.drive.InchToCount(20)));
+        addSequential(new StopAndWait(0.2));
+        addSequential(new RotateToDistance(0.3,360));
+        addSequential(new StopAndWait(0.2));
         
         //place Tote 1 on top of Tote 2        
-        addSequential(new MoveElevatorToPosition(2, 3));
-        addSequential(new StopElevator(0.2));
+        addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition2, 3));
         addSequential(new DriveToDistance(.3,Robot.drive.InchToCount(10)));
         addSequential(new StopAndWait(0.2));
-        addSequential(new MoveElevatorToPosition(0.5, 3));
-        addSequential(new StopElevator(0.2));
+        addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition1, 3));
+        addSequential(new DriveToDistance(-0.3,Robot.drive.InchToCount(3)));
+        addSequential(new StopAndWait(0.2));
+        addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition0, 3));
+        addSequential(new DriveToDistance(0.3,Robot.drive.InchToCount(3)));
+        addSequential(new StopAndWait(0.2));
         
       //Pick up Tote 2 and Tote 1 and move to auto zone
-        addSequential(new MoveElevatorToPosition(1, 3));
-        addSequential(new StopElevator(0.2));
-        addSequential(new DriveToDistance(-.3,Robot.drive.InchToCount(10)));
-        addSequential(new DriveToDistance(-.5,Robot.drive.InchToCount(90)));
-        addSequential(new DriveToDistance(-.3,Robot.drive.InchToCount(10)));
+        addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition1, 3));
+        addSequential(new RotateToDistance(0.3,360));
+        addSequential(new StopAndWait(0.2));
+        addSequential(new DriveToDistance(.3,Robot.drive.InchToCount(10)));
+        addSequential(new DriveToDistance(.5,Robot.drive.InchToCount(90)));
+        addSequential(new DriveToDistance(.3,Robot.drive.InchToCount(10)));
         addSequential(new StopAndWait(2));
     }
 }

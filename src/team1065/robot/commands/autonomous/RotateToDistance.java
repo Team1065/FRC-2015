@@ -19,7 +19,6 @@ public class RotateToDistance extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        Robot.drive.startEncoders();
         Robot.drive.resetEncoders();
     }
 
@@ -36,7 +35,6 @@ public class RotateToDistance extends Command {
     // Called once after isFinished returns true
     protected void end() {
         Robot.drive.tankDrive(0, 0);
-        Robot.drive.stopEncoders();
     }
 
     // Called when another command which requires one or more of the same

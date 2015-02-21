@@ -18,15 +18,16 @@ public class RobotMap {
            elevatorPTerm = 1.0,
            elevatorPositionDeadBand = 0.001,
            elevatorJoystickMiddle = 0.063,
-           elevatorJoystickDeadBand = 0.005;
+           elevatorJoystickDeadBand = 0.005,
+		   intakeJoystickDeadBand = 0.015;
     
   //Elevator Position values
     public static final double 
             elevatorPosition0 = 4.860,
-            elevatorPosition1 = 4.885,
-            elevatorPosition2 = 4.900,
-            elevatorPosition3 = 4.915,
-            elevatorPosition4 = 4.930,
+            elevatorPosition1 = 4.870,
+            elevatorPosition2 = 4.880,
+            elevatorPosition3 = 4.890,
+            elevatorPosition4 = 4.920,
             elevatorPosition5 = 4.949;
     
     //Elevator Knob values
@@ -46,13 +47,20 @@ public class RobotMap {
             autoKnob2 = 0.055,
             autoKnob3 = 0.087;
 	
-	//Motors PMW input on Robot
+	//PMW Outputs
     public static final int 
             frontLeftMotor  = 0,  
             frontRightMotor = 1,  
             backLeftMotor   = 2,  
             backRightMotor  = 3,
-            elevatorMotor   = 4;
+            elevatorMotor   = 4,
+            leftIntakeMotor	= 5,
+            rightIntakeMotor= 6;
+    
+  //Solenoids Outputs
+    public static final int 
+            fishingPoleLeftActuator  = 0,
+    		fishingPoleRightActuator = 1;
     
     //Digital Inputs
     public static final int
@@ -72,12 +80,20 @@ public class RobotMap {
            leftJoystick       	= 0,
            rightJoystick      	= 1,
            enhancedDS   	  	= 2,
-           triggerButtonPort  	= 1,  
-           mecanumButtonPort  	= 2,
-           elevatorAnalogPort	= 2,//LaunchPad analog
+           
+           triggerButtonPort  	= 1,//JoyStick Digital
+           mecanumButtonPort  	= 2,//JoyStick Digital
+           
            elevatorKnobPort		= 0,//LaunchPad analog
            autoKnobPort			= 1,//LaunchPad analog
-           elevatorDigitalPort	= 9;//LaunchPad digital
-    
+           elevatorAnalogPort	= 2,//LaunchPad analog
+           intakeAnalogYPort	= 4,//LaunchPad analog VERIFY
+           intakeAnalogXPort	= 5,//LaunchPad analog VERIFY
+           
+           fishingPolePort		= 1,//LaunchPad digital VERIFY
+           intakeInPort			= 7,//LaunchPad digital VERIFY
+           intakeOutPort		= 8,//LaunchPad digital VERIFY
+           elevatorOverridePort	= 9,//LaunchPad digital
+           intakeOverridePort	= 10;//LaunchPad digital VERIFY
   
 }

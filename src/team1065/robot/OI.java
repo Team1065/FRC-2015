@@ -51,18 +51,41 @@ public class OI {
     }
     
     public boolean getElevatorManualButton(){
-    	return enhancedDS.getRawButton(RobotMap.elevatorDigitalPort);
-    	//return true;
+    	return enhancedDS.getRawButton(RobotMap.elevatorOverridePort);	
+    }
+    
+    public boolean getIntakeOverrideButton(){
+    	return enhancedDS.getRawButton(RobotMap.intakeOverridePort);
+    }
+    
+    public boolean getIntakeInButton(){
+    	return enhancedDS.getRawButton(RobotMap.intakeInPort);
+    }
+    
+    public boolean getIntakeOutButton(){
+    	return enhancedDS.getRawButton(RobotMap.intakeOutPort);
+    }
+    
+    public boolean getFishingPoleButton(){
+    	return enhancedDS.getRawButton(RobotMap.fishingPolePort);
     }
     
     public double getElevatorJoystickY(){
 		return enhancedDS.getRawAxis(RobotMap.elevatorAnalogPort);
 	}
     
+    public double getIntakeJoystickY(){
+		return enhancedDS.getRawAxis(RobotMap.intakeAnalogYPort);
+	}
+    
+    public double getIntakeJoystickX(){
+		return enhancedDS.getRawAxis(RobotMap.intakeAnalogXPort);
+	}
+    
     public double getElevatorDesiredPosition(){
     	double position;
 		double knobValue = enhancedDS.getRawAxis(RobotMap.elevatorKnobPort);
-		double threshold = 0.005;
+		double threshold = 0.008;
 		
 		//If Station Knob is at 0
 		if(knobValue < RobotMap.elevatorKnob0 + threshold){
@@ -99,7 +122,9 @@ public class OI {
     public int autonomousSelection(){
     	int position;
 		double knobValue = enhancedDS.getRawAxis(RobotMap.autoKnobPort);
-		double threshold = 0.005;
+		double threshold = 0.008;
+		
+		//Introduce the use of a switch to double the number of auto modes we are able to select
 		
 		//If Station Knob is at 1
 		if(knobValue < RobotMap.autoKnob0 + threshold){

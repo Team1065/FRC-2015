@@ -1,6 +1,8 @@
 
 package team1065.robot;
 
+import java.util.Vector;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.command.Command;
@@ -8,12 +10,20 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import team1065.robot.commands.DriveWithJoysticks;
 import team1065.robot.commands.ElevatorControl;
+import team1065.robot.commands.FishingPoleControl;
+import team1065.robot.commands.IntakeControl;
 import team1065.robot.commands.autonomous.Autonomous1;
 import team1065.robot.commands.autonomous.Autonomous2;
 import team1065.robot.commands.autonomous.Autonomous3;
 import team1065.robot.commands.autonomous.Autonomous4;
+import team1065.robot.commands.autonomous.Autonomous5;
+import team1065.robot.commands.autonomous.Autonomous6;
+import team1065.robot.commands.autonomous.Autonomous7;
+import team1065.robot.commands.autonomous.Autonomous8;
 import team1065.robot.subsystems.DriveSystem;
 import team1065.robot.subsystems.Elevator;
+import team1065.robot.subsystems.FishingPole;
+import team1065.robot.subsystems.Intake;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,15 +33,17 @@ import team1065.robot.subsystems.Elevator;
  * directory.
  */
 public class Robot extends IterativeRobot {
-	public static final DriveSystem drive = new DriveSystem();
 	public static OI oi;
+	public static final DriveSystem drive = new DriveSystem();
 	public static final Elevator elevator = new Elevator();
+	public static final Intake intake = new Intake();
+	public static final FishingPole fishingPole = new FishingPole();
 	
 	public static Preferences pref;
 
-	Command initDrive, initElevator;
+	Vector<Command> initCommands;
 	
-	Command auto1,auto2,auto3, auto4;
+	Vector<Command> auto = new Vector<Command>(8);
 	
     /**
      * This function is run when the robot is first started up and should be
@@ -41,13 +53,19 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		pref = Preferences.getInstance();
 		
-		initDrive = new DriveWithJoysticks();
-		initElevator = new ElevatorControl();
+		initCommands.add(new DriveWithJoysticks());
+		initCommands.add(new ElevatorControl());
+		initCommands.add(new IntakeControl());
+		initCommands.add(new FishingPoleControl());
 		
-		auto1 = new Autonomous1();
-        auto2 = new Autonomous2();
-        auto3 = new Autonomous3();
-        auto4 = new Autonomous4();
+		auto.add(new Autonomous1());
+		auto.add(new Autonomous2());
+		auto.add(new Autonomous3());
+		auto.add(new Autonomous4());
+		auto.add(new Autonomous5());
+		auto.add(new Autonomous6());
+		auto.add(new Autonomous7());
+		auto.add(new Autonomous8());
     }
 	
 	public void disabledPeriodic() {
@@ -55,19 +73,7 @@ public class Robot extends IterativeRobot {
 	}
 
     public void autonomousInit() {
-        switch(oi.autonomousSelection())
-        {
-            case 1: auto1.start();
-                    break;
-            case 2: auto2.start();
-                    break;
-            case 3: auto3.start();
-                    break;
-            case 4: auto4.start();
-                    break;
-            default: auto1.start();
-                    break;
-        }
+        auto.elementAt(oi.autonomousSelection()).start();
     }
 
     /**
@@ -78,13 +84,11 @@ public class Robot extends IterativeRobot {
     }
 
     public void teleopInit() {
-		// This makes sure that the autonomous stops running when
-        // teleop starts running. If you want the autonomous to 
-        // continue until interrupted by another command, remove
-        // this line or comment it out.
-        //if (autonomousCommand != null) autonomousCommand.cancel();
-    	initDrive.start();
-    	initElevator.start();
+    	auto.elementAt(oi.autonomousSelection()).cancel();
+
+    	for (Command command : initCommands) {
+    		command.start();
+        }
     }
 
     /**

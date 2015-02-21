@@ -107,18 +107,6 @@ public class DriveSystem extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void startEncoders()
-    {
-        //encoderLeft.start();
-        //encoderRight.start();
-    }
-    
-    public void stopEncoders()
-    {
-        //encoderLeft.stop();
-        //encoderRight.stop();
-    }
-    
     public void resetEncoders()
     {
         encoderLeft.reset();

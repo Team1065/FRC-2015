@@ -21,8 +21,7 @@ public class DriveToDistance extends Command {
     }
 
     protected void initialize() {
-        Robot.drive.startEncoders();
-	Robot.drive.resetEncoders();
+    	Robot.drive.resetEncoders();
     }
 
     protected void execute() {
@@ -44,7 +43,6 @@ public class DriveToDistance extends Command {
     }
 
     protected void end() {
-        Robot.drive.stopEncoders();
     }
 
 

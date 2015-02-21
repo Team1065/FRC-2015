@@ -35,6 +35,7 @@ public class MoveElevatorToPosition extends Command {
     }
 
     protected void end() {
+    	Robot.elevator.setElevatorSpeed(0);
     }
 
     protected void interrupted() {

@@ -24,7 +24,6 @@ public class MecanumToDistance extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.drive.startEncoders();
         Robot.drive.resetEncoders();
     }
 
@@ -40,7 +39,6 @@ public class MecanumToDistance extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-        Robot.drive.stopEncoders();
         Robot.drive.tankDrive(0, 0);
     }
 
