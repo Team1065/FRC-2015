@@ -24,10 +24,10 @@ public class IntakeControl extends Command {
     		if(Math.abs(stickY) > RobotMap.intakeJoystickDeadBand || 
     				Math.abs(stickX) > RobotMap.intakeJoystickDeadBand){
     			if(Math.abs(stickY) > Math.abs(stickX)){
-    				Robot.intake.in(stickY);
+    				Robot.intake.in((stickY - RobotMap.elevatorJoystickMiddle)/RobotMap.elevatorJoystickMiddle);
     			}
     			else{
-    				Robot.intake.rotate(stickX);
+    				Robot.intake.rotate((stickX - RobotMap.elevatorJoystickMiddle)/RobotMap.elevatorJoystickMiddle);
     			}
     		}
     		else{

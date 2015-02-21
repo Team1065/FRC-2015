@@ -15,36 +15,30 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class Autonomous5 extends CommandGroup {
     
     public Autonomous5() {
-    	//3 totes moving 2 bins out of the way in the process.
-    	// Yellow tote 1
-    	addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition2, 2));
-    	addSequential(new StopAndWait(2));
-    	addSequential(new DriveToDistance(0.3,Robot.drive.InchToCount(60)));
-    	addSequential(new StopAndWait(.2));
-    	addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition1, 2));
-    	// Yellow tote 2 
-    	addParallel(new DriveToDistance(-0.3,Robot.drive.InchToCount(4)));
-    	addSequential(new StopAndWait(.2));
-    	addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition0, 2));
-    	addParallel(new DriveToDistance(0.3,Robot.drive.InchToCount(12)));
-    	addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition2, 2));
-    	addSequential(new StopAndWait(.2));
-    	addSequential(new DriveToDistance(0.3,Robot.drive.InchToCount(48)));
-    	addSequential(new StopAndWait(.2));
-    	addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition1, 2));
-    	// Yellow Tote 3
-    	addParallel(new DriveToDistance(-0.3,Robot.drive.InchToCount(4)));
-    	addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition0, 2));
-    	addSequential(new StopAndWait(.2));
-    	addParallel(new DriveToDistance(0.3,Robot.drive.InchToCount(12)));
-    	addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition1, 2));
-    	addSequential(new StopAndWait(.2));
-    	//Move to auto zone
-    	addSequential(new RotateToDistance(-0.3,360));
-    	addSequential(new DriveToDistance(-0.3,Robot.drive.InchToCount(36)));
-    	addSequential(new StopAndWait(.2));
-    	addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition0, 2));
-    	addSequential(new DriveToDistance(-0.3,Robot.drive.InchToCount(36)));
-    	addSequential(new StopAndWait(.2));
+    	
+    	
+    	//1 tote and 1 bin
+    	//Pick up Tote 1
+        addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition1, 3));
+        addSequential(new DriveToDistance(-0.3,Robot.drive.InchToCount(3)));
+        addSequential(new StopAndWait(0.2));
+        
+        //Move to Bin 1
+        addSequential(new RotateToDistance(0.3,360));
+        addSequential(new StopAndWait(0.2));
+        addSequential(new DriveToDistance(0.3,Robot.drive.InchToCount(26)));
+        addSequential(new StopAndWait(0.2));
+        addSequential(new MecanumToDistance(-0.3,Robot.drive.InchToCount(30)));
+        addSequential(new StopAndWait(0.2));
+        
+        //Pick up Bin 1
+        addSequential(new DriveToDistance(-0.3,Robot.drive.InchToCount(5)));
+        addSequential(new StopAndWait(0.2));
+        addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition0, 3));
+        addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition2, 3));
+        addSequential(new DriveToDistance(.3,Robot.drive.InchToCount(10)));
+        addSequential(new DriveToDistance(.5,Robot.drive.InchToCount(90)));
+        addSequential(new DriveToDistance(.3,Robot.drive.InchToCount(10)));
+        addSequential(new StopAndWait(2));
     }
 }

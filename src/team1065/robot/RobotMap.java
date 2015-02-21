@@ -94,6 +94,6 @@ public class RobotMap {
            intakeInPort			= 7,//LaunchPad digital VERIFY
            intakeOutPort		= 8,//LaunchPad digital VERIFY
            elevatorOverridePort	= 9,//LaunchPad digital
-           intakeOverridePort	= 10;//LaunchPad digital VERIFY
+           intakeOverridePort	= 2;//LaunchPad digital VERIFY
   
 }
