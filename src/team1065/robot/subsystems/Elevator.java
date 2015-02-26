@@ -59,22 +59,21 @@ public class Elevator extends Subsystem {
 	public void moveToPosition(double desiredPosition){
 		double positionDifference = desiredPosition - getCurrentPosition();
 		
-		if(Math.abs(positionDifference) > Robot.pref.getDouble("elevatorPositionDeadBand", RobotMap.elevatorPositionDeadBand)){
-			pTerm = Robot.pref.getDouble("elevatorPTerm", RobotMap.elevatorPTerm);
+		if(Math.abs(positionDifference) > RobotMap.elevatorPositionDeadBand){
 			if(positionDifference > 0){
-				if(positionDifference > 0.005){
+				if(positionDifference > 0.002){
 					setElevatorSpeed(1);
 				}
 				else{
-					setElevatorSpeed(.5);//positionDifference * pTerm);
+					setElevatorSpeed(.7);
 				}
 			}
 			else{
-				if(positionDifference < -0.005){
+				if(positionDifference < -0.002){
 					setElevatorSpeed(-1);
 				}
 				else{
-					setElevatorSpeed(-0.5);//positionDifference * pTerm);
+					setElevatorSpeed(-0.7);
 				}
 			}
 		}

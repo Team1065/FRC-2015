@@ -18,33 +18,48 @@ public class Autonomous3 extends CommandGroup {
     	//3 totes moving 2 bins out of the way in the process.
     	// Yellow tote 1
     	addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition2, 2));
-    	addSequential(new StopAndWait(2));
-    	addSequential(new DriveToDistance(0.3,Robot.drive.InchToCount(60)));
-    	addSequential(new StopAndWait(.2));
-    	addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition1, 2));
-    	// Yellow tote 2 
-    	addParallel(new DriveToDistance(-0.3,Robot.drive.InchToCount(4)));
+    	addSequential(new IntakeOut(1,.2));
+    	addSequential(new RotateToDistance(-0.3,180));
+    	addSequential(new DriveToDistance(0.3,Robot.drive.InchToCount(30)));
+    	addSequential(new RotateToDistance(0.3,360));
+    	addSequential(new DriveToDistance(0.3,Robot.drive.InchToCount(20)));
+    	addSequential(new RotateToDistance(-0.3,180));
+    	addSequential(new IntakeIn(1,.2));
+    	addSequential(new DriveToDistance(0.3,Robot.drive.InchToCount(10)));
     	addSequential(new StopAndWait(.2));
     	addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition0, 2));
-    	addParallel(new DriveToDistance(0.3,Robot.drive.InchToCount(12)));
+    	// Yellow tote 2
     	addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition2, 2));
-    	addSequential(new StopAndWait(.2));
-    	addSequential(new DriveToDistance(0.3,Robot.drive.InchToCount(48)));
-    	addSequential(new StopAndWait(.2));
-    	addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition1, 2));
-    	// Yellow Tote 3
-    	addParallel(new DriveToDistance(-0.3,Robot.drive.InchToCount(4)));
-    	addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition0, 2));
-    	addSequential(new StopAndWait(.2));
-    	addParallel(new DriveToDistance(0.3,Robot.drive.InchToCount(12)));
-    	addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition1, 2));
-    	addSequential(new StopAndWait(.2));
-    	//Move to auto zone
-    	addSequential(new RotateToDistance(-0.3,360));
-    	addSequential(new DriveToDistance(-0.3,Robot.drive.InchToCount(36)));
+    	addSequential(new IntakeOut(1,.2));
+    	addSequential(new RotateToDistance(-0.3,180));
+    	addSequential(new DriveToDistance(0.3,Robot.drive.InchToCount(30)));
+    	addSequential(new RotateToDistance(0.3,360));
+    	addSequential(new DriveToDistance(0.3,Robot.drive.InchToCount(20)));
+    	addSequential(new RotateToDistance(-0.3,180));
+    	addSequential(new IntakeIn(1,.2));
+    	addSequential(new DriveToDistance(0.3,Robot.drive.InchToCount(10)));
     	addSequential(new StopAndWait(.2));
     	addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition0, 2));
-    	addSequential(new DriveToDistance(-0.3,Robot.drive.InchToCount(36)));
+    	// Yellow tote 3
+    	addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition2, 2));
+    	addSequential(new IntakeOut(1,.2));
+    	addSequential(new RotateToDistance(-0.3,180));
+    	addSequential(new DriveToDistance(0.3,Robot.drive.InchToCount(30)));
+    	addSequential(new RotateToDistance(0.3,360));
+    	addSequential(new DriveToDistance(0.3,Robot.drive.InchToCount(20)));
+    	addSequential(new RotateToDistance(-0.3,180));
+    	addSequential(new IntakeIn(1,.2));
+    	addSequential(new DriveToDistance(0.3,Robot.drive.InchToCount(10)));
     	addSequential(new StopAndWait(.2));
+    	addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition0, 2));
+    	// Move to AZ
+    	addSequential(new RotateToDistance(0.3,360));
+    	addSequential(new DriveToDistance(0.3,Robot.drive.InchToCount(36)));
+    	addSequential(new StopAndWait(.2));
+    	addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition0, 2));
+    	addSequential(new IntakeOut(1,.2));
+    	addSequential(new DriveToDistance(-0.3,Robot.drive.InchToCount(5)));
+    	addSequential(new StopAndWait(.2));
+    	
     }
 }

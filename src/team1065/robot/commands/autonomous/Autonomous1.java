@@ -7,7 +7,7 @@ import team1065.robot.RobotMap;
 public class Autonomous1 extends CommandGroup {
 	public Autonomous1()
 	{
-		//Pick up Tote 1 and drive to AZ
+		//Pick up Tote 1
 		addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition1, 3));
         addSequential(new StopElevator(0.2));
         addSequential(new RotateToDistance(0.3,360));

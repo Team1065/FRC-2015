@@ -33,9 +33,9 @@ public class DriveWithJoysticks extends Command {
         }
         else{
         	//reduced speed
-        	leftY = Robot.oi.getleftJoystickY() * Robot.pref.getDouble("regularSpeedPercentage", RobotMap.regularSpeedPercentage);
-            rightY = Robot.oi.getrightJoystickY() * Robot.pref.getDouble("regularSpeedPercentage", RobotMap.regularSpeedPercentage);
-            averageY = Robot.oi.getYAverage() * Robot.pref.getDouble("regularSpeedPercentage", RobotMap.regularSpeedPercentage);
+        	leftY = Robot.oi.getleftJoystickY() * RobotMap.regularSpeedPercentage;
+            rightY = Robot.oi.getrightJoystickY() * RobotMap.regularSpeedPercentage;
+            averageY = Robot.oi.getYAverage() * RobotMap.regularSpeedPercentage;
         }
 
         double joystickDiff = Math.abs(leftY-rightY);
