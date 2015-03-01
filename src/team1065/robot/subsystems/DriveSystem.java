@@ -192,7 +192,7 @@ public class DriveSystem extends Subsystem {
     }
 
 	public double InchToCount(double inches) {
-		double count = ((RobotMap.driveWheelsDiameter*Math.PI)/RobotMap.encoderCountPerRev) * inches;
+		double count = inches * (RobotMap.encoderCountPerRev /(RobotMap.driveWheelsDiameter*Math.PI));
 		return count;
 	}
 }

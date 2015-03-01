@@ -7,13 +7,13 @@ import team1065.robot.RobotMap;
 public class Autonomous1 extends CommandGroup {
 	public Autonomous1()
 	{
-		//Pick up Tote 1
+		//Pick up Tote 1 (flat)
 		addSequential(new MoveElevatorToPosition(RobotMap.elevatorPosition1, 3));
         addSequential(new StopElevator(0.2));
-        addSequential(new RotateToDistance(0.3,360));
+        addSequential(new RotateToDistance(0.3,540));
         addSequential(new StopAndWait(0.2));
         addSequential(new DriveToDistance(.3,Robot.drive.InchToCount(10)));
-        addSequential(new DriveToDistance(.5,Robot.drive.InchToCount(90)));
+        addSequential(new DriveToDistance(.5,Robot.drive.InchToCount(45)));
         addSequential(new DriveToDistance(.3,Robot.drive.InchToCount(10)));
         addSequential(new StopAndWait(0.2));
 	}

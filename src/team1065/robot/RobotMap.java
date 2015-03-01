@@ -23,12 +23,12 @@ public class RobotMap {
     
   //Elevator Position values
     public static final double 
-            elevatorPosition0 = 4.860,
-            elevatorPosition1 = 4.870,
-            elevatorPosition2 = 4.880,
-            elevatorPosition3 = 4.890,
-            elevatorPosition4 = 4.920,
-            elevatorPosition5 = 4.949;
+            elevatorPosition0 = 4.859,
+            elevatorPosition1 = 4.866,
+            elevatorPosition2 = 4.874,
+            elevatorPosition3 = 4.885,
+            elevatorPosition4 = 4.932,
+            elevatorPosition5 = 4.950;
     
     //Elevator Knob values
     public static final double 

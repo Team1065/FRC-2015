@@ -128,23 +128,23 @@ public class OI {
 		
 		//If Station Knob is at 1
 		if(knobValue < RobotMap.autoKnob0 + threshold){
-            position = 1;
+            position = 0;
         }
         //If Station Knob is at 2
         else if(knobValue >= RobotMap.autoKnob1 - threshold && knobValue < RobotMap.autoKnob1 + threshold){
-            position = 2;
+            position = 1;
         }
         //If Station Knob is at 3
         else if(knobValue >= RobotMap.autoKnob2 - threshold && knobValue < RobotMap.autoKnob2 + threshold){
-            position = 3;
+            position = 2;
         }
         //If Station Knob is at 4
         else if(knobValue >= RobotMap.autoKnob3 - threshold && knobValue < RobotMap.autoKnob3 + threshold){
-            position = 4;
+            position = 3;
         }
         else
         {
-        	position = 1;
+        	position = 0;
         }
 		
 		return position;

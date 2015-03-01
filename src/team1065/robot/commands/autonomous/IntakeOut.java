@@ -11,6 +11,7 @@ public class IntakeOut extends Command {
     public IntakeOut(double speed, double time) {
     	requires(Robot.intake);
     	this.speed = speed;
+    	this.setTimeout(time);
     }
 
     // Called just before this Command runs the first time
