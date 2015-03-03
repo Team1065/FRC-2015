@@ -104,10 +104,10 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        drive.updateStatus();
+        //drive.updateStatus();
         elevator.updateStatus();
-        intake.updateStatus();
-        oi.updateStatus();
+        //intake.updateStatus();
+        //oi.updateStatus();
     }
     
     /**
