@@ -14,7 +14,7 @@ public class RobotMap {
            driveMinSpeed = 0.2,
            driveStraightThresholdPercentage = .30,
            driveStraightPTerm = 0.0001,
-           regularSpeedPercentage = 0.35,
+           regularSpeedPercentage = 0.45,
            elevatorPTerm = 1.0,
            elevatorPositionDeadBand = 0.001,
            elevatorJoystickMiddle = 0.063,

@@ -26,7 +26,7 @@ public class Autonomous4 extends CommandGroup {
     	addParallel(new MoveElevatorToPosition(RobotMap.elevatorPosition3, 3));
     	addSequential(new DriveToDistance(0.3,Robot.drive.InchToCount(5)));
     	addSequential(new RotateToDistance(-0.3,200));//rotate towards the third tote
-    	addSequential(new DriveToDistance(0.3,Robot.drive.InchToCount(45)));
+    	addSequential(new DriveToDistance(0.35,Robot.drive.InchToCount(45)));
     	addSequential(new StopAndWait(.05));
     	
     	//Yellow tote 3
@@ -34,7 +34,7 @@ public class Autonomous4 extends CommandGroup {
     	
     	// Move to AZ and back out
     	addSequential(new RotateToDistance(0.5,560));//speed up?
-        addSequential(new DriveToDistance(.7,Robot.drive.InchToCount(45)));//increase?
+        addSequential(new DriveToDistance(.6,Robot.drive.InchToCount(45)));//increase?
     	addParallel(new IntakeOut(1,.2));
     	addSequential(new DriveToDistance(.5,Robot.drive.InchToCount(5)));
     	addSequential(new DriveToDistance(-1,Robot.drive.InchToCount(30)));

@@ -24,7 +24,7 @@ public class MoveElevatorToPosition extends Command {
     protected boolean isFinished() {
     	double positionDifference = desiredPosition - Robot.elevator.getCurrentPosition();
     	if((Math.abs(positionDifference) < RobotMap.elevatorPositionDeadBand)
-    			|| this.isTimedOut())
+    			|| this.isTimedOut() || (desiredPosition < 0 && Robot.elevator.bottomLimitReached()))
     	{
     		return true;
     	}
