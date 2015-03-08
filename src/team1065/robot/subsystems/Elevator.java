@@ -11,19 +11,21 @@ import edu.wpi.first.wpilibj.Talon;
  *
  */
 public class Elevator extends Subsystem {
-	private Talon motor;
+	private Talon motor1, motor2;
 	private DigitalInput topSwitch, bottomSwitch;
 	private AnalogInput pot;
 	private double pTerm;
 	public Elevator(){
-		motor = new Talon(RobotMap.elevatorMotor);
+		motor1 = new Talon(RobotMap.elevatorMotor1);
+		motor2 = new Talon(RobotMap.elevatorMotor2);
 		topSwitch = new DigitalInput(RobotMap.topLimitSwitch);
 		bottomSwitch = new DigitalInput(RobotMap.bottomLimitSwitch);
 		pot = new AnalogInput(RobotMap.potentiometer);
 		pTerm = RobotMap.elevatorPTerm;
 	}
 	private void setSpeed(double speed){
-		motor.set(-speed);
+		motor1.set(-speed);
+		motor2.set(-speed);
 	}
 	public boolean topLimitReached(){
 		return topSwitch.get();

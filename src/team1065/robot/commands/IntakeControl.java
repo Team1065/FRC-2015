@@ -36,10 +36,10 @@ public class IntakeControl extends Command {
     	}
     	else{
     		if(Robot.oi.getIntakeInButton()){
-    			Robot.intake.in(1);
+    			Robot.intake.in(.5);
     		}
     		else if(Robot.oi.getIntakeOutButton()){
-    			Robot.intake.out(1);
+    			Robot.intake.out(.5);
     		}
     		else{
     			Robot.intake.stop();

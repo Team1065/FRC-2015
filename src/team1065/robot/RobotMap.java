@@ -19,7 +19,7 @@ public class RobotMap {
            elevatorPositionDeadBand = 0.001,
            elevatorJoystickMiddle = 0.063,
            elevatorJoystickDeadBand = 0.010,
-		   intakeJoystickDeadBand = 0.010;
+		   intakeJoystickDeadBand = 0.020;
     
   //Elevator Position values
     public static final double 
@@ -53,9 +53,10 @@ public class RobotMap {
             frontRightMotor = 1,  
             backLeftMotor   = 2,  
             backRightMotor  = 3,
-            elevatorMotor   = 4,
-            leftIntakeMotor	= 5,
-            rightIntakeMotor= 6;
+            elevatorMotor1  = 4,
+            elevatorMotor2  = 5,
+            leftIntakeMotor	= 6,
+            rightIntakeMotor= 7;
     
   //Solenoids Outputs
     public static final int 

@@ -18,8 +18,8 @@ public class Intake extends Subsystem {
     }
     
     public void SetMotors(double lSpeed, double rSpeed){
-    	leftMotor.set(lSpeed);
-    	rightMotor.set(rSpeed);
+    	leftMotor.set(-lSpeed);
+    	rightMotor.set(-rSpeed);
     }
     
     public void in(double speed){
