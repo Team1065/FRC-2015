@@ -15,11 +15,13 @@ public class Intake extends Subsystem {
     public Intake(){
     	leftMotor = new Talon(RobotMap.leftIntakeMotor);
     	rightMotor = new Talon(RobotMap.rightIntakeMotor);
+    	leftMotor.setSafetyEnabled(false);
+    	rightMotor.setSafetyEnabled(false);
     }
     
     public void SetMotors(double lSpeed, double rSpeed){
-    	leftMotor.set(-lSpeed);
-    	rightMotor.set(-rSpeed);
+    	leftMotor.set(lSpeed);
+    	rightMotor.set(rSpeed);
     }
     
     public void in(double speed){

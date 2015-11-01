@@ -18,6 +18,8 @@ public class Elevator extends Subsystem {
 	public Elevator(){
 		motor1 = new Talon(RobotMap.elevatorMotor1);
 		motor2 = new Talon(RobotMap.elevatorMotor2);
+		motor1.setSafetyEnabled(false);
+		motor2.setSafetyEnabled(false);
 		topSwitch = new DigitalInput(RobotMap.topLimitSwitch);
 		bottomSwitch = new DigitalInput(RobotMap.bottomLimitSwitch);
 		pot = new AnalogInput(RobotMap.potentiometer);
@@ -63,19 +65,19 @@ public class Elevator extends Subsystem {
 		
 		if(Math.abs(positionDifference) > RobotMap.elevatorPositionDeadBand){
 			if(positionDifference > 0){
-				if(positionDifference > 0.002){
+				if(positionDifference > 0.003){
 					setElevatorSpeed(1);
 				}
 				else{
-					setElevatorSpeed(.7);
+					setElevatorSpeed(.5);
 				}
 			}
 			else{
-				if(positionDifference < -0.002){
+				if(positionDifference < -0.003){
 					setElevatorSpeed(-1);
 				}
 				else{
-					setElevatorSpeed(-0.7);
+					setElevatorSpeed(-0.2);
 				}
 			}
 		}

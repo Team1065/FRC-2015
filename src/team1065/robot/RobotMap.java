@@ -16,19 +16,19 @@ public class RobotMap {
            driveStraightPTerm = 0.0001,
            regularSpeedPercentage = 0.45,
            elevatorPTerm = 1.0,
-           elevatorPositionDeadBand = 0.001,
+           elevatorPositionDeadBand = 0.002,
            elevatorJoystickMiddle = 0.063,
            elevatorJoystickDeadBand = 0.010,
 		   intakeJoystickDeadBand = 0.020;
     
   //Elevator Position values
     public static final double 
-            elevatorPosition0 = 4.859,
-            elevatorPosition1 = 4.866,
-            elevatorPosition2 = 4.874,
-            elevatorPosition3 = 4.885,
-            elevatorPosition4 = 4.932,
-            elevatorPosition5 = 4.950;
+            elevatorPosition0 = 4.864,
+            elevatorPosition1 = 4.871,
+            elevatorPosition2 = 4.879,
+            elevatorPosition3 = 4.890,
+            elevatorPosition4 = 4.937,
+            elevatorPosition5 = 4.955;
     
     //Elevator Knob values
     public static final double 
